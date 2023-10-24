@@ -27,6 +27,7 @@ class Poll(models.Model):
     pub_date = models.DateTimeField(default=timezone.now)
     active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    about = models.TextField(null=True)
 
     def user_can_vote(self, user):
         """ 
