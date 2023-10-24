@@ -28,6 +28,10 @@
 							<div class="text w-100">
 								<h2>Welcome to login</h2>
 								<p>Don't have an account?</p>
+                {% if messages %}
+                <p style="alert">{{message}}</p>
+                {% else %}
+                {% endif %}
 								<a href="#" class="btn btn-white btn-outline-white">Sign Up</a>
 							</div>
 			            </div>
@@ -67,7 +71,7 @@
                                 </div>
                                 <div class="w-50 text-md-right">
                                     <a href="#">Forgot Password</a>
-                                </div>
+                                </div>s
                             </div>
 		                </form>
 		            </div>
