@@ -5,6 +5,8 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import *
 from django.contrib import messages
 from voteguard import settings
+from .models import *
+
 
 """
 For each bug and feature I either solve or create, I'll drop a dad joke.
@@ -113,6 +115,10 @@ def register(request):
 
     else:
         return render(request, 'register.html', context)
+    
+
+def blog(request):
+    return render(request, 'blog.html')
 
 
 
