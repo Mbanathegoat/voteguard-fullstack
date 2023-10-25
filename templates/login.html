@@ -1,6 +1,8 @@
   {% extends "base.html" %}
   {% load static %}
-
+  {% block css %}
+  <link href="{% static 'assets/css/auth.css' %}" rel="stylesheet">
+  {% endblock css %}
   {% block content %}
   
 
@@ -28,11 +30,12 @@
 							<div class="text w-100">
 								<h2>Welcome to login</h2>
 								<p>Don't have an account?</p>
-                {% if messages %}
-                <p style="alert">{{message}}</p>
-                {% else %}
+               {% if messages %}
+                {% for message in messages %}
+                <p class="alert">{{message}}</p>
+                {% endfor %}
                 {% endif %}
-								<a href="#" class="btn btn-white btn-outline-white">Sign Up</a>
+								<a href="{% url 'register' %}" class="btn btn-white btn-outline-white">Sign Up</a>
 							</div>
 			            </div>
 					<div class="login-wrap p-4 p-lg-5">
@@ -41,13 +44,14 @@
 			      			    <h3 class="mb-4">Sign In</h3>
 			      		    </div>
                             <div class="w-100">
-                                <p class="social-media d-flex justify-content-end">
+                                {% comment %} <p class="social-media d-flex justify-content-end">
                                     <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
                                     <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                </p>
+                                </p> {% endcomment %}
                             </div>
 			      	    </div>
-                        <form action="#" class="signin-form">
+                        <form action="#" class="signin-form" method="POST">
+                        {% csrf_token %}
                             <div class="form-group mb-3 mt-4">
                                 <label class="label mb-3" for="name">Username</label>
                                 <input type="text" class="form-control" placeholder="Username" required name="username">
@@ -71,7 +75,7 @@
                                 </div>
                                 <div class="w-50 text-md-right">
                                     <a href="#">Forgot Password</a>
-                                </div>s
+                                </div>
                             </div>
 		                </form>
 		            </div>
