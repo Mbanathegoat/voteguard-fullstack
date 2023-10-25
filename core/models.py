@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 import uuid
 from django.utils import timezone
 from autoslug import AutoSlugField
+import secrets
 User = get_user_model()
 
 class Profile(models.Model):
@@ -18,7 +19,17 @@ class Profile(models.Model):
     def __str__(self):
         return self.owner
     
-import secrets
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=300)
+    slug = AutoSlugField(populate_from="title", editable=False, primary_key=True)
+    date_published = models.DateField(auto_now_add=True)
+    body = models.TextField()
+    is_published = models.BooleanField()
+
+    def __str__(self):
+        return self.title
+    
 
 
 class Poll(models.Model):
