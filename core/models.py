@@ -22,10 +22,11 @@ class Profile(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=300)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     slug = AutoSlugField(populate_from="title", editable=False, primary_key=True)
     date_published = models.DateField(auto_now_add=True)
     body = models.TextField()
-    is_published = models.BooleanField()
+    is_published = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

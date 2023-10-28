@@ -118,11 +118,35 @@ def register(request):
     
 
 def blog(request):
-    return render(request, 'blog.html')
+    posts = BlogPost.objects.filter(is_published=True)
+    context = {
+        'posts' : posts,
+        'title' : "Blog"
+    }
+    return render(request, 'blog.html', context)
+
+
+
+def blog_detail(request, pk):
+    post = BlogPost.objects.get(slug=pk)
+
+    context = {
+        'post' : post,
+        'title' : post.title
+    }
+
+    return render(request, 'blog-details.html', context)
 
 
 
 
 # UNAUTHENTICATED VIEWS END
 
-# Create your views here.
+
+
+# AUTHENTICATED VIEWS START
+
+def poll_results(self, request):
+    pass
+
+# AUTHENTICATED VIEWS END
