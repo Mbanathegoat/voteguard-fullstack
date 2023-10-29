@@ -30,7 +30,7 @@
               <article>
                 {% comment %} <p class="post-category">Politics</p> {% endcomment %}
                 <h2 class="title">
-                  <a href="blog-details.html">{{post.title}}</a>
+                  <a href="{% url 'blog-detail' post.slug %}">{{post.title}}</a>
                 </h2>
   
                 <div class="d-flex align-items-center">

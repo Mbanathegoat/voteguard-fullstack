@@ -149,4 +149,7 @@ def blog_detail(request, pk):
 def poll_results(self, request):
     pass
 
+def poll_vote(self, request):
+    pass
+
 # AUTHENTICATED VIEWS END

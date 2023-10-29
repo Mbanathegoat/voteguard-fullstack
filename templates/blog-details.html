@@ -1,0 +1,70 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li>Blog Single</li>
+        </ol>
+        <h2>Blog Blog</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-12 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                {% comment %} <img src="{% static 'assets/img/blog/blog-1.jpg' %}" alt="" class="img-fluid"> {% endcomment %}
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">{{title}}</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{post.author}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{post.date_published}}</time></a></li>
+                  {% comment %} <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li> {% endcomment %}
+                </ul>
+              </div>
+
+              <div class="entry-content">
+
+                {{post.body}}    
+
+              </div>
+
+
+            </article><!-- End blog entry -->
+
+
+          </div><!-- End blog entries list -->
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock content %}
