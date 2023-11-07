@@ -150,16 +150,27 @@ def blog_detail(self, request, pk):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-def poll_results(self, request):
+def poll_results(request):
     pass
 
-def poll_vote(self, request):
+def poll_vote(request):
     pass
 
-def edit_profile(self, request):
-    context ={
-        
+def edit_profile(request):
+    user_profile = Profile.objects.get(owner=request.user)
+
+    if request.method == "POST":
+        pass
+
+
+    context = {
+        "user_profile" : user_profile
     }
-    return render(request, 'profile.html', context)
+
+
+    
+    return render(request, 'profile.html', )
+
+
 
 # AUTHENTICATED VIEWS END
