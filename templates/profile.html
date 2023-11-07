@@ -214,8 +214,8 @@
                       <h5 class="card-header">Profile Details</h5>
                       <!-- Account -->
                       <div class="card-body">
-                        <form id="formAccountSettings" method="POST" onsubmit="return false" enctype="multipart/form-data">
-
+                        <form id="formAccountSettings" method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
                           <!-- <img src="{{user_profile.profile_picture.url}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar"> -->
                           <div class="button-wrapper">
@@ -229,15 +229,15 @@
                           <div class="row">
                             <div class="mb-3 col-md-6">
                               <label for="firstName" class="form-label">First Name</label>
-                              <input class="form-control" type="text" id="firstName" name="first_name" value="John" autofocus="" disabled>
+                              <input class="form-control" type="text" id="firstName" name="first_name" value="{{user.first_name}}" autofocus="" disabled>
                             </div>
                             <div class="mb-3 col-md-6">
                               <label for="lastName" class="form-label">Last Name</label>
-                              <input class="form-control" type="text" name="last_name" id="lastName" value="Doe" disabled>
+                              <input class="form-control" type="text" name="last_name" id="lastName" value="{{user.first_name}}" disabled>
                             </div>
                             <div class="mb-3 col-md-6">
                               <label for="email" class="form-label">E-mail</label>
-                              <input class="form-control" type="text" id="email" name="email" value="john.doe@example.com" placeholder="john.doe@example.com" disabled>
+                              <input class="form-control" type="text" id="email" name="email" value="{{user.email}}" placeholder="john.doe@example.com" disabled>
                             </div>
                             <div class="mb-3 col-md-6">
                               <label class="form-label" for="phoneNumber">Phone Number</label>
@@ -255,7 +255,7 @@
                             </div>
                             <div class="mb-3 col-md-6">
                               <label for="zipCode" class="form-label">How did you hear about us?</label>
-                              <input type="text" class="form-control" id="zipCode" name="how_did_you_hear-about_us" placeholder="Facebook, Twitter, WhatsApp">
+                              <input type="text" class="form-control" id="zipCode" name="how_did_you_hear_about_us" placeholder="Facebook, Twitter, WhatsApp" value="{{user_profile.how_did_you_hear_about_us}}">
                             </div>
                             <div class="mb-3 col-md-6">
                               <label for="zipCode" class="form-label">About Me</label>

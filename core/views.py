@@ -179,11 +179,25 @@ def poll_results(request):
 def poll_vote(request):
     pass
 
+@login_required
 def edit_profile(request):
     user_profile = Profile.objects.get(owner=request.user)
 
     if request.method == "POST":
-        pass
+        phone_number = request.POST['phone_number']
+        how_did_you_hear_about_us = request.POST['how_did_you_hear_about_us']
+        nationality = request.POST['nationality']
+        address = request.POST['address']
+        about_me = request.POST['about_me']
+
+
+        user_profile.phone_number = phone_number
+        user_profile.how_did_you_hear_about_us = how_did_you_hear_about_us
+        user_profile.nationality = nationality
+        user_profile.address = address
+        user_profile.about_me = about_me
+        user_profile.save()
+
 
 
     context = {
@@ -192,7 +206,7 @@ def edit_profile(request):
 
 
     
-    return render(request, 'profile.html', )
+    return render(request, 'profile.html', context)
 
 
 
