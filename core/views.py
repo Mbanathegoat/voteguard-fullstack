@@ -38,7 +38,7 @@ def login(request):
     user = request.user
 
     if user.is_authenticated:
-        return redirect("home")
+        return redirect("dashboard")
 
     context = {
         'title' : 'Login',
@@ -64,7 +64,7 @@ def register(request):
     user = request.user
 
     if user.is_authenticated:
-        return redirect("home")
+        return redirect("edit-profile")
     context = {
         'title' : 'Sign Up',
     }
@@ -127,7 +127,7 @@ def blog(request):
 
 
 
-def blog_detail(request, pk):
+def blog_detail(self, request, pk):
     post = BlogPost.objects.get(slug=pk)
 
     context = {
@@ -146,10 +146,20 @@ def blog_detail(request, pk):
 
 # AUTHENTICATED VIEWS START
 
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
 def poll_results(self, request):
     pass
 
 def poll_vote(self, request):
     pass
+
+def edit_profile(self, request):
+    context ={
+        
+    }
+    return render(request, 'profile.html', context)
 
 # AUTHENTICATED VIEWS END

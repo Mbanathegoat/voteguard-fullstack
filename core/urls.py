@@ -8,7 +8,9 @@ urlpatterns = [
     path('login', views.login, name="login"),
     path('register', views.register, name="register"),
     path('blog', views.blog, name="blog"),
-    path("blog-deail/<str:pk>", views.blog_detail, name="blog-detail")
+    path("blog-deail/<str:pk>", views.blog_detail, name="blog-detail"),
+    path("dashboard", views.dashboard, name="dashboard"),
+    path("edit-profile", views.edit_profile, name="edit-profile"),
 
 
     # Authenticated Views

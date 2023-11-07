@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html
   lang="en"
@@ -30,26 +31,26 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="resources/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="{% static 'resources/vendor/fonts/boxicons.css' %}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="resources/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="resources/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="resources/css/demo.css" />
+    <link rel="stylesheet" href="{% static 'resources/vendor/css/core.css' %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static 'resources/vendor/css/theme-default.css' %}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static 'resources/css/demo.css' %}" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="resources/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="{% static 'resources/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
 
-    <link rel="stylesheet" href="resources/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="{% static 'resources/vendor/libs/apex-charts/apex-charts.css' %}" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="resources/vendor/js/helpers.js"></script>
+    <script src="{% static 'resources/vendor/js/helpers.js' %}"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="resources/js/config.js"></script>
+    <script src="{% static 'resources/js/config.js' %}"></script>
   </head>
 
   <body>
@@ -130,8 +131,8 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                
+              <div class="navbar-nav align-items-center p-2 mt-3">
+                <h4><span style="color: #3A58A0;">Changing the way you vote</span></h4>
               </div>
               <!-- /Search -->
 
@@ -143,7 +144,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="resources/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{% static 'resources/img/avatars/1.png' %}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -152,7 +153,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="resources/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="{% static 'resources/img/avatars/1.png' %}" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -217,7 +218,7 @@
                       <div class="col-sm-5 text-center text-sm-left">
                         <div class="card-body pb-0 px-0 px-md-4">
                           <img
-                            src="resources/img/hello.gif"
+                            src="{% static 'resources/img/hello.gif' %}"
                             height="140"
                             alt="View Badge User"
                           />
@@ -235,7 +236,7 @@
 
                     <div class="col-md-6 col-lg-4 mb-3">
                       <div class="card h-100">
-                        <img class="card-img-top" src="resources/img/elements/2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{% static 'resources/img/elements/2.jpg' %}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">Election Title</h5>
                           <p class="card-text">
@@ -248,7 +249,7 @@
 
                     <div class="col-md-6 col-lg-4 mb-3">
                       <div class="card h-100">
-                        <img class="card-img-top" src="resources/img/elements/2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{% static 'resources/img/elements/2.jpg' %}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">Election Title</h5>
                           <p class="card-text">
@@ -261,7 +262,7 @@
 
                     <div class="col-md-6 col-lg-4 mb-3">
                       <div class="card h-100">
-                        <img class="card-img-top" src="resources/img/elements/2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{% static 'resources/img/elements/2.jpg' %}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">Election Title</h5>
                           <p class="card-text">
@@ -283,7 +284,7 @@
 
                     <div class="col-md-6 col-lg-4 mb-3">
                       <div class="card h-100">
-                        <img class="card-img-top" src="resources/img/elements/2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{% static 'resources/img/elements/2.jpg' %}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">Election Title</h5>
                           <p class="card-text">
@@ -296,7 +297,7 @@
 
                     <div class="col-md-6 col-lg-4 mb-3">
                       <div class="card h-100">
-                        <img class="card-img-top" src="resources/img/elements/2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{% static 'resources/img/elements/2.jpg' %}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">Election Title</h5>
                           <p class="card-text">
@@ -309,7 +310,7 @@
 
                     <div class="col-md-6 col-lg-4 mb-3">
                       <div class="card h-100">
-                        <img class="card-img-top" src="resources/img/elements/2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{% static 'resources/img/elements/2.jpg' %}" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">Election Title</h5>
                           <p class="card-text">
@@ -346,22 +347,22 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="resources/vendor/libs/jquery/jquery.js"></script>
-    <script src="resources/vendor/libs/popper/popper.js"></script>
-    <script src="resources/vendor/js/bootstrap.js"></script>
-    <script src="resources/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="{% static 'resources/vendor/libs/jquery/jquery.js' %}"></script>
+    <script src="{% static 'resources/vendor/libs/popper/popper.js' %}"></script>
+    <script src="{% static 'resources/vendor/js/bootstrap.js' %}"></script>
+    <script src="{% static 'resources/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
 
-    <script src="resources/vendor/js/menu.js"></script>
+    <script src="{% static 'resources/vendor/js/menu.js' %}"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="resources/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="{% static 'resources/vendor/libs/apex-charts/apexcharts.js' %}"></script>
 
     <!-- Main JS -->
-    <script src="resources/js/main.js"></script>
+    <script src="{% static 'resources/js/main.js' %}"></script>
 
     <!-- Page JS -->
-    <script src="resources/js/dashboards-analytics.js"></script>
+    <script src="{% static 'resources/js/dashboards-analytics.js' %}"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
