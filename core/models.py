@@ -34,11 +34,12 @@ class BlogPost(models.Model):
 
 class Poll(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.TextField()
+    title = models.CharField(max_length=300)
     pub_date = models.DateTimeField(default=timezone.now)
     active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     about = models.TextField(null=True)
+    image = models.FileField(upload_to="poll_images", null=True)
 
     def user_can_vote(self, user):
         """ 
@@ -62,7 +63,7 @@ class Poll(models.Model):
                            'danger', 'dark', 'warning', 'info']
 
             d['alert_class'] = secrets.choice(alert_class)
-            d['text'] = choice.choice_text
+            d['title'] = choice.choice_text
             d['num_votes'] = choice.get_vote_count
             if not self.get_vote_count:
                 d['percentage'] = 0
@@ -74,7 +75,7 @@ class Poll(models.Model):
         return res
 
     def __str__(self):
-        return self.text
+        return self.title
 
 
 class Choice(models.Model):

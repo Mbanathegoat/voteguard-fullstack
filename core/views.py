@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage
@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import *
 from django.contrib import messages
 from voteguard import settings
 from .models import *
-
+from django.core.paginator import Paginator
 
 """
 For each bug and feature I either solve or create, I'll drop a dad joke.
@@ -170,15 +170,6 @@ def blog_detail(self, request, pk):
 # AUTHENTICATED VIEWS START
 
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
-
-def poll_results(request):
-    pass
-
-def poll_vote(request):
-    pass
-
 @login_required
 def edit_profile(request):
     user_profile = Profile.objects.get(owner=request.user)
@@ -208,6 +199,33 @@ def edit_profile(request):
     
     return render(request, 'profile.html', context)
 
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
+@login_required
+def poll_list(request):
+    all_polls = Poll.objects.all()
+    paginator = Paginator(all_polls, 6)
+    page = request.GET.get('page')
+    polls = paginator.get_page(page)
 
+    context = {
+        'polls' : polls
+    }
+
+    return render(request, 'poll_list.html', context)
+
+@login_required
+def poll_detail(request, poll_id):
+    poll = get_object_or_404(Poll, id=poll_id)
+
+    if not poll.active:
+        return render(request, 'polls/poll_result.html', {'poll': poll})
+    loop_count = poll.choice_set.count()
+    context = {
+        'poll': poll,
+        'loop_time': range(0, loop_count),
+    }
+    return render(request, 'polls/poll_detail.html', context)
 # AUTHENTICATED VIEWS END
