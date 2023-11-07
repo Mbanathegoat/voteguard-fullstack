@@ -89,7 +89,7 @@ class Choice(models.Model):
         return self.vote_set.count()
 
     def __str__(self):
-        return f"{self.poll.text[:25]} - {self.choice_text[:25]}"
+        return f"{self.poll.title[:25]} - {self.choice_text[:25]}"
 
 
 class Vote(models.Model):
@@ -100,7 +100,7 @@ class Vote(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.poll.text[:15]} - {self.choice.choice_text[:15]} - {self.user.username}'
+        return f'{self.poll.title[:15]} - {self.choice.choice_text[:15]} - {self.user.username}'
 
 
 # Create your models here.
