@@ -11,6 +11,7 @@ urlpatterns = [
     path("blog-deail/<str:pk>", views.blog_detail, name="blog-detail"),
     path("dashboard", views.dashboard, name="dashboard"),
     path("edit-profile", views.edit_profile, name="edit-profile"),
+    path('continue-registration', views.cont, name="cont")
 
 
     # Authenticated Views

@@ -8,7 +8,6 @@ User = get_user_model()
 
 class Profile(models.Model):
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    profile_picture = models.FileField(upload_to="profile images", default="blank.jpg")
     id_user = models.IntegerField(null=True)
     phone_number = models.CharField(max_length=300)
     how_did_you_hear_about_us = models.TextField()
