@@ -75,14 +75,14 @@
           <ul class="menu-inner py-1 mt-5">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link mb-5">
+              <a href="{% url 'dashboard' %}" class="menu-link mb-5">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="index.html" class="menu-link mb-5">
+              <a href="{% url 'poll-list' %}" class="menu-link mb-5">
                 <i class="menu-icon tf-icons bx bx-water"></i>
                 <div data-i18n="Analytics">Ongoing Polls</div>
               </a>
@@ -109,6 +109,20 @@
               </a>
             </li>
 
+            <li class="menu-item">
+              <a href="{% url 'edit-profile' %}" class="menu-link mb-5">
+                <i class="menu-icon tf-icons bx bx-upvote"></i>
+                <div data-i18n="Analytics">My Account</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="{% url 'logout' %}" class="menu-link mb-5">
+                <i class="menu-icon tf-icons bx bx-upvote"></i>
+                <div data-i18n="Analytics">Logout</div>
+              </a>
+            </li>
+
 
             
           </ul>
@@ -132,7 +146,9 @@
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center">
-                
+                <div class="navbar-nav align-items-center p-2 mt-3">
+                  <h4><span style="color: #3A58A0;">Changing the way you vote</span></h4>
+                </div>
               </div>
               <!-- /Search -->
 
@@ -140,11 +156,11 @@
                 <!-- Place this tag where you want the button to render. -->
                 
 
-                <!-- User -->
+                <!-- User 
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="{% static 'resources/img/avatars/1.png' %}" alt class="w-px-40 h-auto rounded-circle" />
+                      <span><i class="bx bx-shield" style="font-size: larger !important;"></i></span>
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -153,12 +169,12 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="{% static 'resources/img/avatars/1.png' %}" alt class="w-px-40 h-auto rounded-circle" />
+                              <span><i class="bx bx-shield" style="font-size: larger !important;"></i></span>
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block">{{user.first_name}} {{user.last_name}}</span>
+                            {% comment %} <small class="text-muted">Admin</small> {% endcomment %}
                           </div>
                         </div>
                       </a>
@@ -188,7 +204,7 @@
                       </a>
                     </li>
                   </ul>
-                </li>
+                </li> -->
                 <!--/ User -->
               </ul>
             </div>

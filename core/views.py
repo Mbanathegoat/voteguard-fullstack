@@ -252,5 +252,9 @@ def poll_vote(request, poll_id):
         return redirect("detail", poll_id)
     return render(request, 'poll_result.html', {'poll': poll})
 
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 # AUTHENTICATED VIEWS END
