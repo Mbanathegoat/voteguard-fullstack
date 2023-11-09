@@ -204,15 +204,19 @@
                 <div class="row">
                     <h3 class="fw-bold">Ongoing Polls</h3>
                     <p class="text-muted">In this section, you get to see ongoing polls and vote in them as well. So go ahead, exercise that right!!!</p>
-
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">This is a primary alert — check it out!</div>
+                    {% endfor %}
+                    {% endif %}
                     {% for poll in polls %}
                     <div class="col-md-6 col-lg-4 mb-3">
                         <div class="card h-100">
-                          <img class="card-img-top" src="{{polls.image.url}}" alt="Card image cap">
+                          <img class="card-img-top" src="{{poll.image.url}}" alt="Card image cap">
                           <div class="card-body">
-                            <h5 class="card-title">{{polls.title}}</h5>
+                            <h5 class="card-title">{{poll.title}}</h5>
                             <p class="card-text">
-                              {{polls.about|truncatechars:20}}
+                              {{poll.about|truncatechars:20}}
                             </p>
                             <a href="{% url 'detail' poll.id %}" class="btn btn-outline-primary">Vote in this poll</a>
                           </div>

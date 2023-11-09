@@ -204,6 +204,11 @@
                 <div class="row">
                     <h3 class="fw-bold">Poll Results || {{poll.title}}</h3>
                     <p class="text-muted">Thank you for voting in this poll, here are the results as it stands in the ongoing poll</p>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">{{message}}</div>
+                    {% endfor %}
+                    {% endif %}
 
                     <div id="chart">
                     

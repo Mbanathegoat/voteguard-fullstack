@@ -221,7 +221,7 @@ def poll_detail(request, poll_id):
     poll = get_object_or_404(Poll, id=poll_id)
 
     if not poll.active:
-        return render(request, 'polls/poll_result.html', {'poll': poll})
+        return render(request, 'poll_result.html', {'poll': poll})
     loop_count = poll.choice_set.count()
     context = {
         'poll': poll,
@@ -229,8 +229,6 @@ def poll_detail(request, poll_id):
     }
     return render(request, 'poll_detail.html', context)
 
-# def poll_result(request):
-#     return render(request, 'poll_result.html')
 
 
 @login_required
@@ -251,7 +249,7 @@ def poll_vote(request, poll_id):
     else:
         messages.error(
             request, "No choice selected!", extra_tags='alert alert-warning alert-dismissible fade show')
-        return redirect("poll-result", poll_id)
+        return redirect("detail", poll_id)
     return render(request, 'poll_result.html', {'poll': poll})
 
 

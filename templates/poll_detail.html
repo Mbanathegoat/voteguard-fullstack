@@ -206,17 +206,22 @@
                   {% comment %} <p class="text-muted">{{poll.about}}</p> {% endcomment %}
                   <div class="col-md-6 col-lg-8 mb-3 p-3">
                     <p class="text-muted">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur dolores modi vitae laborum animi qui temporibus repellendus non, ab repudiandae!
+                      {{poll.about}}
                     </p>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">This is a primary alert — check it out!</div>
+                    {% endfor %}
+                    {% endif %}
                     <div class="card">
                       <div class="card-body">
-                        <form action="{% url 'poll-result' poll.id %}" method="post" class="">
+                        <form action="{% url 'poll-result' poll.id %}" method="POST" class="">
                           {% csrf_token %}
                           {% for choice in poll.choice_set.all %}
-                          <div class="form-check" style="font-size: larger;">
-                            <input name="default-radio-1" class="form-check-input" type="radio" value="" id="choice{{forloop.counter}}" value="{{choice.id}}">
-                            <label class="form-check-label" for="choice{{forloop.counter}}"> {{choice.choice_text}} </label>
-                          </div>
+                            <div class="form-check" style="font-size: larger;">
+                              <input name="choice" class="form-check-input" type="radio" id="choice{{forloop.counter}}" value="{{choice.id}}">
+                              <label class="form-check-label" for="choice{{forloop.counter}}"> {{choice.choice_text}} </label>
+                            </div>
                           {% endfor %}
                           <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
