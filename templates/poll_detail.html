@@ -210,7 +210,7 @@
                     </p>
                     <div class="card">
                       <div class="card-body">
-                        <form action="" method="post" class="">
+                        <form action="{% url 'poll-result' poll.id %}" method="post" class="">
                           {% csrf_token %}
                           {% for choice in poll.choice_set.all %}
                           <div class="form-check" style="font-size: larger;">
