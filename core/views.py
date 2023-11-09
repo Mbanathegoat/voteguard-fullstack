@@ -51,7 +51,7 @@ def login(request):
 
         if user is not None: #Cheking If User Exists in the database
             auth.login(request, user) # Logs in User
-            return redirect('home') # Redirects to home view
+            return redirect('dashboard') # Redirects to home view
         else:
             messages.info(request, 'Invalid Username or Password') #Conditional Checking if credentials are correct
             return redirect('login')#Redirects to login if invalid
@@ -120,7 +120,7 @@ def register(request):
 # @login_required
 def cont(request):
     if Profile.objects.filter(owner=request.user).exists():
-        return redirect("home")
+        return redirect("dashboard")
     else:
         user_model = User.objects.get(username=request.user)
         new_profile = Profile.objects.create(owner=user_model, id_user=user_model.id)
@@ -227,5 +227,32 @@ def poll_detail(request, poll_id):
         'poll': poll,
         'loop_time': range(0, loop_count),
     }
-    return render(request, 'polls/poll_detail.html', context)
+    return render(request, 'poll_detail.html', context)
+
+def poll_result(request):
+    return render(request, 'poll_result.html')
+
+
+# @login_required
+# def poll_vote(request, poll_id):
+#     poll = get_object_or_404(Poll, pk=poll_id)
+#     choice_id = request.POST.get('choice')
+#     if not poll.user_can_vote(request.user):
+#         messages.error(
+#             request, "You already voted this poll!", extra_tags='alert alert-warning alert-dismissible fade show')
+#         return redirect("polls:list")
+
+#     if choice_id:
+#         choice = Choice.objects.get(id=choice_id)
+#         vote = Vote(user=request.user, poll=poll, choice=choice)
+#         vote.save()
+#         print(vote)
+#         return render(request, 'polls/poll_result.html', {'poll': poll})
+#     else:
+#         messages.error(
+#             request, "No choice selected!", extra_tags='alert alert-warning alert-dismissible fade show')
+#         return redirect("polls:detail", poll_id)
+#     return render(request, 'polls/poll_result.html', {'poll': poll})
+
+
 # AUTHENTICATED VIEWS END

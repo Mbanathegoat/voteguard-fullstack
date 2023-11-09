@@ -18,4 +18,16 @@ class PollAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
 
 
+@admin.register(Choice)
+class ChoiceAdmin(admin.ModelAdmin):
+    list_display = ["choice_text", "poll", 'created_at', 'updated_at']
+    search_fields = ["choice_text", "poll__title"]
+    autocomplete_fields = ["poll"]
+
+@admin.register(Vote)
+class VoteAdmin(admin.ModelAdmin):
+    list_display = ["choice", "poll", "user", 'created_at']
+    search_fields = ["choice__choice_text", "poll__text", "user__username"]
+    autocomplete_fields = ["choice", "poll", "user"]
+
 # Register your models here.

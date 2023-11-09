@@ -15,8 +15,8 @@ urlpatterns = [
     path("edit-profile", views.edit_profile, name="edit-profile"),
     path('continue-registration', views.cont, name="cont"),
     path('ongoing-poll', views.poll_list, name="poll-list"),
-    path('<int:poll_id>/', views.poll_detail, name='detail'),
-
+    path('poll-detail/<int:poll_id>', views.poll_detail, name='detail'),
+    path('poll-result', views.poll_result, name="poll-result")
     # Authenticated Views
     
 ]
