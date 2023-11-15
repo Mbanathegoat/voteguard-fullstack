@@ -31,7 +31,11 @@ For each bug and feature I either solve or create, I'll drop a dad joke.
 
 
 def index(request):
-    return render(request, "index.html")
+    posts = BlogPost.objects.filter(is_published=True)
+    context = {
+        'posts' : posts
+    }
+    return render(request, "index.html", context)
 
 
 def login(request):
@@ -150,7 +154,7 @@ def blog(request):
 
 
 
-def blog_detail(self, request, pk):
+def blog_detail(request, pk):
     post = BlogPost.objects.get(slug=pk)
 
     context = {
@@ -189,6 +193,8 @@ def edit_profile(request):
         user_profile.about_me = about_me
         user_profile.save()
 
+        return redirect("dashboard")
+
 
 
     context = {
@@ -201,7 +207,15 @@ def edit_profile(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    all_polls = Poll.objects.all()
+    paginator = Paginator(all_polls, 6)
+    page = request.GET.get('page')
+    polls = paginator.get_page(page)
+
+    context = {
+        'polls' : polls
+    }
+    return render(request, 'dashboard.html', context)
 
 @login_required
 def poll_list(request):
