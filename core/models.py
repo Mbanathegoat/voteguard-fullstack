@@ -80,6 +80,8 @@ class Poll(models.Model):
 
 class Choice(models.Model):
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
+    choice_image = models.ImageField(upload_to="choice_details_pictures")
+    choice_description = models.TextField()
     choice_text = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
