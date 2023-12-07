@@ -39,7 +39,7 @@ class Poll(models.Model):
     active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     about = models.TextField(null=True)
-    image = models.FileField(upload_to="poll_images", null=True)
+    image = models.FileField(upload_to="poll_images", null=True, help_text="Upload an image with 600x600 resolution")
 
     def user_can_vote(self, user):
         """ 
@@ -80,8 +80,8 @@ class Poll(models.Model):
 
 class Choice(models.Model):
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
-    choice_image = models.ImageField(upload_to="choice_details_pictures")
-    choice_description = models.TextField()
+    choice_image = models.ImageField(upload_to="choice_details_pictures", null=True)
+    choice_description = models.TextField(null=True)
     choice_text = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

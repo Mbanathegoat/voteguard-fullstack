@@ -97,9 +97,9 @@ def register(request):
                 }
                 message = get_template('mail.html').render(ctx)
                 msg = EmailMessage(
-                    'Welcome to Paradoxx',
+                    'Welcome to VoteGuard',
                     message,
-                    'Paradoxx',
+                    'VoteGuard',
                     [email],
                 )
                 msg.content_subtype ="html"# Main content is now text/html
