@@ -1,19 +1,19 @@
-Voteguard- An online voting system built with Django
+# Voteguard- An online voting system built with Django
 
-Overview: Voteguard was inspired by the presence of electoral malpractices and misuse and compromisation of data.
+## Overview: Voteguard was inspired by the presence of electoral malpractices and misuse and compromisation of data.
 It was built so users can seamlessly cast their votes without having to worry about the risk of data leaks and information 
 loss. Users are able to Log on, view elections, view candidates, have the information saved and log off.
 
-Features:
+## Features:
 Landing page,
 Dashboard,
 Login/Signup,
 Vote casting.
 
-Tech Stack:
+## Tech Stack:
 Python, Django, Javascript, React, SQLite, POSTGRESQL.
 
-Future improvements:
+## Future improvements:
 AWS deployment
 
 Contact: 
