@@ -13,3 +13,8 @@ Vote casting.
 Tech Stack:
 Python, Django, Javascript, React, SQLite, POSTGRESQL.
 
+Future improvements:
+AWS deployment
+
+Contact: 
+Mbana Azorbo, azorbom@gmail.com
